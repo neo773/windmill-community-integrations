@@ -1,0 +1,4 @@
+{
+  "description": "Returns a list of uncompleted tasks by project, section, and/or label. [See the docs here](https://developer.todoist.com/rest/v2/#get-active-tasks)",
+  "summary": "List Uncompleted Tasks"
+}

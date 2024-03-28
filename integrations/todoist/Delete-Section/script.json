@@ -1,0 +1,4 @@
+{
+  "description": "Deletes a section. [See the docs here](https://developer.todoist.com/rest/v2/#delete-a-section)",
+  "summary": "Delete Section"
+}

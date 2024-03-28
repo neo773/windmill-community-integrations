@@ -1,0 +1,4 @@
+{
+  "description": "Returns a list of all labels. [See the docs here](https://developer.todoist.com/rest/v2/#get-all-personal-labels)",
+  "summary": "List Labels"
+}

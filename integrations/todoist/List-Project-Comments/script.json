@@ -1,0 +1,4 @@
+{
+  "description": "Returns a list of comments for a project. [See the docs here](https://developer.todoist.com/rest/v2/#get-all-comments)",
+  "summary": "List Project Comments"
+}

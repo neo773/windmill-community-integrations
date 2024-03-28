@@ -1,0 +1,4 @@
+{
+  "description": "Sends email to a person, inviting them to use one of your projects. [See the docs here](https://developer.todoist.com/sync/v9/#share-a-project)",
+  "summary": "Invite User To Project"
+}

@@ -1,0 +1,4 @@
+{
+  "description": "Uncompletes a task. [See the docs here](https://developer.todoist.com/rest/v2/#reopen-a-task)",
+  "summary": "Uncomplete Task"
+}

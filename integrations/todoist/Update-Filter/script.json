@@ -1,0 +1,4 @@
+{
+  "description": "Updates a filter. [See the docs here](https://developer.todoist.com/sync/v9/#update-a-filter)",
+  "summary": "Update Filter"
+}

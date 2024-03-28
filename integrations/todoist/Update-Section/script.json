@@ -1,0 +1,4 @@
+{
+  "description": "Updates a section. [See the docs here](https://developer.todoist.com/rest/v2/#update-a-section)",
+  "summary": "Update Section"
+}

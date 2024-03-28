@@ -1,0 +1,4 @@
+{
+  "description": "Returns info about a label. [See the docs here](https://developer.todoist.com/rest/v2/#get-a-personal-label)",
+  "summary": "Get Label"
+}
