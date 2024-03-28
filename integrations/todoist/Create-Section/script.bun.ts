@@ -5,6 +5,15 @@ type Todoist = {
     Token: string
 } 
 
-export async function main(resource: Todoist) {
+export async function main(resource: Todoist, section: {
+    args: {
+        name: string;
+        projectId: string;
+        order?: number;
+    },
+    requestId?: string
+}) {
     const api = new TodoistApi(resource.Token)
+    const sectionResponse = await api.addSection(section.args, section.requestId)
+    return sectionResponse
 }

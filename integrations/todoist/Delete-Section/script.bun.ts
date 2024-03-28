@@ -5,6 +5,10 @@ type Todoist = {
     Token: string
 } 
 
-export async function main(resource: Todoist) {
+export async function main(resource: Todoist, section: {
+    id: string, requestId?: string
+}) {
     const api = new TodoistApi(resource.Token)
+    const sectionResponse = await api.deleteSection(section.id, section.requestId)
+    return sectionResponse
 }

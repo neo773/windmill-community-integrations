@@ -5,6 +5,10 @@ type Todoist = {
     Token: string
 } 
 
-export async function main(resource: Todoist) {
+export async function main(resource: Todoist, projectId: string) {
     const api = new TodoistApi(resource.Token)
+    const project = await api.getComments({
+        projectId: projectId
+    })
+    return project
 }
