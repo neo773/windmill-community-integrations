@@ -367,3 +367,23 @@
   id: push-notification
   integration: pushover
   name: Push Notification
+- description: Create an issue. See the docs [here](https://developers.linear.app/docs/graphql/working-with-the-graphql-api#creating-and-editing-issues)
+  id: create-issue
+  integration: linear
+  name: Create Issue
+- description: Get an issue by ID. See the docs [here](https://developers.linear.app/docs/graphql/working-with-the-graphql-api)
+  id: get-issue
+  integration: linear
+  name: Get Issue
+- description: Get all the teams. See the docs [here](https://developers.linear.app/docs/graphql/working-with-the-graphql-api)
+  id: get-teams
+  integration: linear
+  name: Get Teams
+- description: Search issues. See the docs [here](https://developers.linear.app/docs/graphql/working-with-the-graphql-api)
+  id: search-issues
+  integration: linear
+  name: Search Issues
+- description: Update an issue. See the docs [here](https://developers.linear.app/docs/graphql/working-with-the-graphql-api#creating-and-editing-issues)
+  id: update-issue
+  integration: linear
+  name: Update Issue
