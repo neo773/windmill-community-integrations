@@ -1,0 +1,4 @@
+{
+  "summary": "Get Issue",
+  "description": "Get an issue by ID. See the docs [here](https://developers.linear.app/docs/graphql/working-with-the-graphql-api)"
+}
