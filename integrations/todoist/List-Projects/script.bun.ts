@@ -7,4 +7,5 @@ type Todoist = {
 
 export async function main(resource: Todoist) {
     const api = new TodoistApi(resource.Token)
+    return await api.getProjects()
 }

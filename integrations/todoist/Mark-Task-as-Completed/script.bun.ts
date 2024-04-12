@@ -5,6 +5,7 @@ type Todoist = {
     Token: string
 } 
 
-export async function main(resource: Todoist) {
+export async function main(resource: Todoist, taskId: string) {
     const api = new TodoistApi(resource.Token)
+    return await api.closeTask(taskId)
 }

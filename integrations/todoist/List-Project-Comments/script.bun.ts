@@ -5,8 +5,8 @@ type Todoist = {
     Token: string
 } 
 
-export async function main(resource: Todoist) {
+export async function main(resource: Todoist, projectId: string) {
     const api = new TodoistApi(resource.Token)
-    const projects = await api.getProjects()
+    const projects = await api.getComments({ projectId: projectId })
     return projects
 }

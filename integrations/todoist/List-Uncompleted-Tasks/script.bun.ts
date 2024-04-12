@@ -7,4 +7,6 @@ type Todoist = {
 
 export async function main(resource: Todoist) {
     const api = new TodoistApi(resource.Token)
+    const tasks = await api.getTasks()
+    return tasks.filter(task => !task.isCompleted)
 }
