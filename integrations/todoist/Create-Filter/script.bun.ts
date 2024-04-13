@@ -70,6 +70,13 @@ export async function main(
 			]
 		})
 	})
+    if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`)
+	}
 	const data = (await response.json()) as Response
-	return data
+	const tempId = Object.keys(data.temp_id_mapping)[0]
+	const createdFilterId = data.temp_id_mapping[tempId]
+	return {
+		id: createdFilterId
+	}
 }

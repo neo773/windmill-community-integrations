@@ -12,9 +12,7 @@ describe('Create Filter', () => {
 		} as const
 		const response = await createFilter(resource, filter)
 		const filters = await listFilters(resource)
-		const tempId = Object.keys(response.temp_id_mapping)[0]
-		const createdFilterId = response.temp_id_mapping[tempId]
-		const createdFilter = filters.find((f) => f.id === createdFilterId)
+		const createdFilter = filters.find((f) => f.id === response.id)
 		expect(createdFilter?.name).toBe(filter.name)
 		expect(createdFilter?.query).toBe(filter.query)
 		expect(createdFilter?.color).toBe(filter.color)

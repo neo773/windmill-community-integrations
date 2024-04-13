@@ -11,9 +11,7 @@ describe('Delete Filter', () => {
 			color: 'charcoal'
 		})
 		expect(createFilterResponse).toBeDefined()
-		const tempId = Object.keys(createFilterResponse.temp_id_mapping)[0]
-		const createdFilterId = createFilterResponse.temp_id_mapping[tempId]
-		const deleteFilterResponse = await main(resource, { id: createdFilterId! })
+		const deleteFilterResponse = await main(resource, { id: createFilterResponse.id })
 		expect(deleteFilterResponse?.is_deleted).toBeTrue()
 	})
 })

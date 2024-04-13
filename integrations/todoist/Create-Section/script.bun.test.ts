@@ -12,8 +12,7 @@ describe('Create Section', () => {
 			}
 		}
 		const createdSection = await main(resource, sectionArgs)
-		expect(createdSection).toBeDefined()
-		expect(createdSection.name).toBe(sectionArgs.args.name)
-		expect(createdSection.projectId).toBe(sectionArgs.args.projectId)
+		expect(createdSection?.name).toBe(sectionArgs.args.name)
+		expect(createdSection?.projectId).toBe(sectionArgs.args.projectId)
 	})
 })
