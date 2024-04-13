@@ -4,7 +4,8 @@ import { resource } from '../resource.ts'
 
 describe('Find User', () => {
 	it('should perform the integration action', async () => {
-		// Add your test logic here
-		expect(true).toBeTruthy() // Update this line based on your test
+		const email = process.env.TODOIST_COLLABORATOR_EMAIL!
+		const user = await main(resource, email)
+		expect(user?.email).toBe(email)
 	})
 })
