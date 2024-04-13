@@ -8,13 +8,13 @@ describe('Create Filter', () => {
 		const filter = {
 			name: `Test Filter ${Math.random().toString(36).substring(2, 15)}`,
 			query: 'priority 1',
-            color: 'red'
+			color: 'red'
 		} as const
 		const response = await createFilter(resource, filter)
 		const filters = await listFilters(resource)
-		const tempId = Object.keys(response.temp_id_mapping)[0];
-		const createdFilterId = response.temp_id_mapping[tempId];
-		const createdFilter = filters.find((f) => f.id === createdFilterId);
+		const tempId = Object.keys(response.temp_id_mapping)[0]
+		const createdFilterId = response.temp_id_mapping[tempId]
+		const createdFilter = filters.find((f) => f.id === createdFilterId)
 		expect(createdFilter?.name).toBe(filter.name)
 		expect(createdFilter?.query).toBe(filter.query)
 		expect(createdFilter?.color).toBe(filter.color)

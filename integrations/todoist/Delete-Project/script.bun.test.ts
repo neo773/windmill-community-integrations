@@ -14,4 +14,3 @@ describe('Delete Project', () => {
 		expect(deleteProjectResponse).toBeTrue()
 	})
 })
-

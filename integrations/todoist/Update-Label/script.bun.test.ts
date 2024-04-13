@@ -1,7 +1,7 @@
 import { main } from './script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
-import {main as createLabel} from '../Create-Label/script.bun'
+import { main as createLabel } from '../Create-Label/script.bun'
 describe('Update Label', () => {
 	it('should create and update a label successfully', async () => {
 		const labelArgs = {

@@ -20,7 +20,7 @@ describe('Update Project', () => {
 		const updatedProject = await main(resource, { id: createdProject.id, args: updatedArgs })
 		expect(updatedProject).toBeDefined()
 		expect(updatedProject.name).toBe(updatedArgs.name)
-			expect(updatedProject.color).toBe(updatedArgs.color)
+		expect(updatedProject.color).toBe(updatedArgs.color)
 		await deleteProject(resource, { id: createdProject.id })
 	})
 })

@@ -5,16 +5,16 @@ type Todoist = {
 }
 
 interface Response {
-    full_sync: boolean;
-    sync_status: Sync_status;
-    sync_token: string;
-    temp_id_mapping: Temp_id_mapping;
+	full_sync: boolean
+	sync_status: Sync_status
+	sync_token: string
+	temp_id_mapping: Temp_id_mapping
 }
 interface Sync_status {
-    [key: string]: string;
+	[key: string]: string
 }
 interface Temp_id_mapping {
-    [key: string]: string;
+	[key: string]: string
 }
 
 export async function main(
@@ -70,6 +70,6 @@ export async function main(
 			]
 		})
 	})
-	const data = await response.json() as Response
+	const data = (await response.json()) as Response
 	return data
 }

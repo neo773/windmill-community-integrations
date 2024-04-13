@@ -18,7 +18,7 @@ describe('Move Task To Section', () => {
 			name: 'Test Project for Moving'
 		})
 		const taskId = taskCreationResponse.id
-        const newTask = await createTask(resource, {
+		const newTask = await createTask(resource, {
 			args: {
 				content: 'Test Task for Moving',
 				projectId: newProject.id
@@ -27,7 +27,6 @@ describe('Move Task To Section', () => {
 		const moveResponse = await moveTaskToSection(resource, taskId, newTask.id)
 		expect(moveResponse).toHaveProperty('sync_status')
 		expect(Object.values(moveResponse.sync_status)[0]).toBe('ok')
-        await deleteProject(resource, { id: newProject.id })
+		await deleteProject(resource, { id: newProject.id })
 	})
 })
-

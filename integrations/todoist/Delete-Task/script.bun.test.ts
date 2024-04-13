@@ -5,7 +5,7 @@ import { main as createTask } from '../Create-Task/script.bun'
 
 describe('Delete Task', () => {
 	it('should create and then delete a task', async () => {
-        const projectId = process.env.TODOIST_PROJECT_ID_READONLY!
+		const projectId = process.env.TODOIST_PROJECT_ID_READONLY!
 		const taskContent = `Test Task ${Math.random().toString(36).substring(2, 15)}`
 		const createdTask = await createTask(resource, {
 			args: { content: taskContent, projectId }
