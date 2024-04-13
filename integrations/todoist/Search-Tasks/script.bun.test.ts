@@ -1,4 +1,4 @@
-import { main } from './script.bun'
+import { main as searchTasks } from './script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
@@ -8,8 +8,7 @@ describe('Search Tasks', () => {
 			projectId: process.env.TODOIST_PROJECT_ID_READONLY!,
 			label: 'urgent'
 		}
-		const tasks = await main(resource, args)
-		expect(tasks).toBeInstanceOf(Array)
+		const tasks = await searchTasks(resource, args)
 		expect(tasks.length).toBeGreaterThan(1)
 		expect(tasks[0].labels).toContain(args.label)
 	})

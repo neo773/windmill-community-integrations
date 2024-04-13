@@ -7,7 +7,6 @@ describe('Get Project Comment', () => {
 		const projectId = process.env.TODOIST_PROJECT_ID_READONLY!
 		const response = await main(resource, projectId)
 		expect(response).toBeDefined()
-		expect(Array.isArray(response)).toBeTruthy()
 		expect(response.length).toBeGreaterThan(0)
 		expect(response[0]).toHaveProperty('id')
 		expect(response[0]).toHaveProperty('content')

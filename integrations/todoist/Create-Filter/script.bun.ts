@@ -4,6 +4,19 @@ type Todoist = {
 	Token: string
 }
 
+interface Response {
+    full_sync: boolean;
+    sync_status: Sync_status;
+    sync_token: string;
+    temp_id_mapping: Temp_id_mapping;
+}
+interface Sync_status {
+    [key: string]: string;
+}
+interface Temp_id_mapping {
+    [key: string]: string;
+}
+
 export async function main(
 	resource: Todoist,
 	filter: {
@@ -34,7 +47,29 @@ export async function main(
 		is_favorite?: boolean
 	}
 ) {
-	const todoist = Todoist(resource.Token)
-	const filterResponse = await todoist.filters.add(filter)
-	return filterResponse
+	const response = await fetch('https://api.todoist.com/sync/v9/sync', {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${resource.Token}`,
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			commands: [
+				{
+					type: 'filter_add',
+					temp_id: crypto.randomUUID(),
+					uuid: crypto.randomUUID(),
+					args: {
+						name: filter.name,
+						query: filter.query,
+						color: filter.color,
+						item_order: filter.item_order,
+						is_favorite: filter.is_favorite
+					}
+				}
+			]
+		})
+	})
+	const data = await response.json() as Response
+	return data
 }
