@@ -11,15 +11,15 @@ describe('Import Tasks', () => {
 					content: 'Test Task 1',
 					description: 'Test Description 1',
 					projectId: projectId
-				},
+				}
 			},
 			{
 				args: {
 					content: 'Test Task 2',
 					description: 'Test Description 2',
 					projectId: projectId
-				},
-			},
+				}
+			}
 		]
 		const response = await main(resource, tasks)
 		expect(response).toHaveLength(tasks.length)

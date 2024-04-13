@@ -1,4 +1,3 @@
-
 type Todoist = {
 	Token: string
 }

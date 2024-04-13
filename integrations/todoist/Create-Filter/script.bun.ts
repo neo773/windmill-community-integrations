@@ -1,5 +1,5 @@
 import { v9 as Todoist } from 'todoist'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 type Todoist = {
 	Token: string
@@ -71,7 +71,7 @@ export async function main(
 			]
 		})
 	})
-    if (!response.ok) {
+	if (!response.ok) {
 		throw new Error(`HTTP error! status: ${response.status}`)
 	}
 	const data = (await response.json()) as Response
