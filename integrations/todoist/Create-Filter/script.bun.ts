@@ -1,4 +1,5 @@
 import { v9 as Todoist } from 'todoist'
+import { v4 as uuidv4 } from 'uuid';
 
 type Todoist = {
 	Token: string
@@ -57,8 +58,8 @@ export async function main(
 			commands: [
 				{
 					type: 'filter_add',
-					temp_id: crypto.randomUUID(),
-					uuid: crypto.randomUUID(),
+					temp_id: uuidv4(),
+					uuid: uuidv4(),
 					args: {
 						name: filter.name,
 						query: filter.query,

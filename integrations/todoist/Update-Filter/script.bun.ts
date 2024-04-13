@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from 'uuid';
+
+
 type Todoist = {
 	Token: string
 }
@@ -55,7 +58,7 @@ export async function main(
 			commands: [
 				{
 					type: 'filter_update',
-					uuid: 'a68b588a-44f7-434c-b3c5-a699949f755c',
+					uuid: uuidv4(),
 					args: {
 						id: filter.id,
 						name: filter.name,

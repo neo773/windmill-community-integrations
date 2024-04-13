@@ -1,4 +1,4 @@
-import { TodoistApi } from '@doist/todoist-api-typescript'
+import { v4 as uuidv4 } from 'uuid';
 import { v9 as Todoist } from 'todoist'
 
 type Todoist = {
@@ -16,7 +16,7 @@ export async function main(resource: Todoist, taskId: string, parentId: string) 
 			commands: [
 				{
 					type: 'item_move',
-					uuid: crypto.randomUUID(),
+					uuid: uuidv4(),
 					args: {
 						id: taskId,
 						parent_id: parentId
