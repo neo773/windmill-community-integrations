@@ -3,8 +3,10 @@ import { describe, it, expect } from 'bun:test';
 import { resource } from '../resource.ts'
 
 describe('List Projects', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
+    it('should return a list of projects', async () => {
+        const projects = await main(resource);
+        expect(projects.length).toBeGreaterThan(0);
+        expect(projects[0].id).toBeDefined();
+        expect(projects[0].name).toBeDefined();
     });
 });

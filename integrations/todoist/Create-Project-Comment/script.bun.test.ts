@@ -5,8 +5,6 @@ import { resource } from '../resource.ts'
 describe('Create Project Comment', () => {
 	it('should create a comment and verify its properties', async () => {
 		const projectId = process.env.TODOIST_PROJECT_ID_READONLY!
-        console.log(projectId);
-        
 		const commentArgs = {
 			args: {
 				content: `Test Project Comment ${Math.random().toString(36).substring(2, 15)}`,
