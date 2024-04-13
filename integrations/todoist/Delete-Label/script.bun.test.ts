@@ -6,7 +6,7 @@ import { main as listLabels } from '../List-Labels/script.bun'
 
 describe('Delete Label', () => {
 	it('should create and then delete a label', async () => {
-        const labelName = `Test Label For Delete ${Math.random().toString(36).substring(2, 15)}`
+		const labelName = `Test Label For Delete ${Math.random().toString(36).substring(2, 15)}`
 		await createLabel(resource, {
 			args: {
 				name: labelName

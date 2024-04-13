@@ -1,4 +1,4 @@
 {
-  "description": "Returns info about a section. [See the docs here](https://developer.todoist.com/rest/v2/#get-a-single-section)",
-  "summary": "Get Section"
+	"description": "Returns info about a section. [See the docs here](https://developer.todoist.com/rest/v2/#get-a-single-section)",
+	"summary": "Get Section"
 }

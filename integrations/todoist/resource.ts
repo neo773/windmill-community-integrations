@@ -1,3 +1,3 @@
 export const resource = {
-    Token: process.env.TODOIST_TOKEN!
+	Token: process.env.TODOIST_TOKEN!
 }

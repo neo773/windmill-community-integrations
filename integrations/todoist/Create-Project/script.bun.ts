@@ -1,19 +1,22 @@
 import { TodoistApi, type ProjectViewStyle } from '@doist/todoist-api-typescript'
 import { v9 as Todoist } from 'todoist'
-import { resource } from '../resource';
+import { resource } from '../resource'
 
 type Todoist = {
-    Token: string
-} 
+	Token: string
+}
 
-export async function main(resource: Todoist, project: {
-    name: string;
-    parentId?: string;
-    color?: string;
-    isFavorite?: boolean;
-    viewStyle?: 'list' | 'board';
-}) {
-    const api = new TodoistApi(resource.Token)
-    const projectResponse = await api.addProject(project)
-    return projectResponse
+export async function main(
+	resource: Todoist,
+	project: {
+		name: string
+		parentId?: string
+		color?: string
+		isFavorite?: boolean
+		viewStyle?: 'list' | 'board'
+	}
+) {
+	const api = new TodoistApi(resource.Token)
+	const projectResponse = await api.addProject(project)
+	return projectResponse
 }

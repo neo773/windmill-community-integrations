@@ -1,4 +1,4 @@
 {
-  "description": "Deletes a comment. [See the docs here](https://developer.todoist.com/rest/v2/#delete-a-comment)",
-  "summary": "Delete Comment"
+	"description": "Deletes a comment. [See the docs here](https://developer.todoist.com/rest/v2/#delete-a-comment)",
+	"summary": "Delete Comment"
 }

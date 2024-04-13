@@ -1,10 +1,16 @@
-import { main } from './script.bun';
-import { describe, it, expect } from 'bun:test';
+import { main } from './script.bun'
+import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
 describe('Search Tasks', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
-    });
-});
+	it('should return tasks based on search criteria', async () => {
+		const args = {
+			projectId: process.env.TODOIST_PROJECT_ID_READONLY!,
+			label: 'urgent'
+		}
+		const tasks = await main(resource, args)
+		expect(tasks).toBeInstanceOf(Array)
+		expect(tasks.length).toBeGreaterThan(1)
+		expect(tasks[0].labels).toContain(args.label)
+	})
+})

@@ -3,7 +3,6 @@ import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createTask } from '../Create-Task/script.bun'
 
-
 describe('Get Task', () => {
 	it('should create and retrieve a task successfully', async () => {
 		const taskArgs = {

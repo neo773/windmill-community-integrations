@@ -1,4 +1,4 @@
 {
-  "description": "Returns info about a project. [See the docs here](https://developer.todoist.com/rest/v2/#get-a-project)",
-  "summary": "Get Project"
+	"description": "Returns info about a project. [See the docs here](https://developer.todoist.com/rest/v2/#get-a-project)",
+	"summary": "Get Project"
 }

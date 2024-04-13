@@ -1,20 +1,27 @@
-import { TodoistApi, type ProjectViewStyle, type UpdateProjectArgs } from '@doist/todoist-api-typescript'
+import {
+	TodoistApi,
+	type ProjectViewStyle,
+	type UpdateProjectArgs
+} from '@doist/todoist-api-typescript'
 import { v9 as Todoist } from 'todoist'
 
 type Todoist = {
-    Token: string
-} 
+	Token: string
+}
 
-export async function main(resource: Todoist, project: {
-    id: string,
-    args: {
-        name?: string;
-        color?: string;
-        isFavorite?: boolean;
-        viewStyle?: 'list' | 'board';
-    }
-}) {
-    const api = new TodoistApi(resource.Token)
-    const projects = await api.updateProject(project.id, project.args)
-    return projects
+export async function main(
+	resource: Todoist,
+	project: {
+		id: string
+		args: {
+			name?: string
+			color?: string
+			isFavorite?: boolean
+			viewStyle?: 'list' | 'board'
+		}
+	}
+) {
+	const api = new TodoistApi(resource.Token)
+	const projects = await api.updateProject(project.id, project.args)
+	return projects
 }

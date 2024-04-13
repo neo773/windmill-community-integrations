@@ -1,10 +1,25 @@
-import { main } from './script.bun';
-import { describe, it, expect } from 'bun:test';
+import { main as moveTaskToSection } from './script.bun'
+import { main as createTask } from '../Create-Task/script.bun'
+import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
+import { main as createProject } from '../Create-Project/script.bun'
 
 describe('Move Task To Section', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
-    });
-});
+	it('should successfully create a task and then move it to a specified section', async () => {
+		const projectId = process.env.TODOIST_PROJECT_ID_READONLY!
+		const taskCreationResponse = await createTask(resource, {
+			args: {
+				content: 'Test Task for Moving',
+				projectId: projectId
+			}
+		})
+		const newProject = await createProject(resource, {
+			name: 'Test Project for Moving'
+		})
+		const taskId = taskCreationResponse.id
+		const parentId = newProject.id
+		const moveResponse = await moveTaskToSection(resource, taskId, parentId)
+		expect(moveResponse).toHaveProperty('sync_status')
+		expect(Object.values(moveResponse.sync_status)[0]).toBe('ok')
+	})
+})

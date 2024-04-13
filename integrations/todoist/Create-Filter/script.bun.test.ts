@@ -5,7 +5,7 @@ import { main as main2 } from '../List-Filters/script.bun.ts'
 
 describe('Create Filter', () => {
 	it('should create a filter successfully', async () => {
-        expect(true).toBeTruthy(); // Update this line based on your test
+		expect(true).toBeTruthy() // Update this line based on your test
 		// const filter = {
 		// 	name: `Test Filter ${Math.random().toString(36).substring(2, 15)}`,
 		// 	query: 'p1',

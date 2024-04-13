@@ -1,4 +1,4 @@
 {
-  "description": "Marks a task as being completed. [See the docs here](https://developer.todoist.com/rest/v2/#close-a-task)",
-  "summary": "Mark Task as Completed"
+	"description": "Marks a task as being completed. [See the docs here](https://developer.todoist.com/rest/v2/#close-a-task)",
+	"summary": "Mark Task as Completed"
 }

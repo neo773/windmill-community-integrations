@@ -1,4 +1,4 @@
 {
-  "description": "Deletes a filter. [See the docs here](https://developer.todoist.com/sync/v9/#delete-a-filter)",
-  "summary": "Delete Filter"
+	"description": "Deletes a filter. [See the docs here](https://developer.todoist.com/sync/v9/#delete-a-filter)",
+	"summary": "Delete Filter"
 }

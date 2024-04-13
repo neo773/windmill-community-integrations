@@ -1,4 +1,4 @@
 {
-  "description": "Returns info about a task. [See the docs here](https://developer.todoist.com/rest/v2/#get-an-active-task)",
-  "summary": "Get Task"
+	"description": "Returns info about a task. [See the docs here](https://developer.todoist.com/rest/v2/#get-an-active-task)",
+	"summary": "Get Task"
 }

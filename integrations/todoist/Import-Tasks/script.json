@@ -1,4 +1,4 @@
 {
-  "description": "Import tasks into a selected project. [See Docs](https://developer.todoist.com/sync/v9/#add-an-item)",
-  "summary": "Import Tasks"
+	"description": "Import tasks into a selected project. [See Docs](https://developer.todoist.com/sync/v9/#add-an-item)",
+	"summary": "Import Tasks"
 }

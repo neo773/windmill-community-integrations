@@ -1,10 +1,20 @@
-import { main } from './script.bun';
-import { describe, it, expect } from 'bun:test';
+import { main } from './script.bun'
+import { main as uncompleteTask } from './script.bun'
+import { main as createTask } from '../Create-Task/script.bun'
+import { main as completeTask } from '../Mark-Task-as-Completed/script.bun'
+import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
 describe('Uncomplete Task', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
-    });
-});
+	it('should create a task, complete it, and then uncomplete it', async () => {
+		const createResponse = await createTask(resource, {
+			args: {
+				content: 'Test Task for Uncomplete'
+			}
+		})
+		const taskId = createResponse.id
+		await completeTask(resource, taskId)
+		const uncompleteResponse = await uncompleteTask(resource, taskId)
+		expect(uncompleteResponse).toBeTrue()
+	})
+})
