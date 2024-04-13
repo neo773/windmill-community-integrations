@@ -1,10 +1,20 @@
-import { main } from './script.bun';
-import { describe, it, expect } from 'bun:test';
+import { main } from './script.bun'
+import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
 describe('Create Project Comment', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
-    });
-});
+	it('should create a comment and verify its properties', async () => {
+		const projectId = process.env.TODOIST_PROJECT_ID_READONLY!
+        console.log(projectId);
+        
+		const commentArgs = {
+			args: {
+				content: `Test Project Comment ${Math.random().toString(36).substring(2, 15)}`,
+				projectId: projectId
+			}
+		} as const
+		const createdComment = await main(resource, commentArgs)
+		expect(createdComment).toBeDefined()
+		expect(createdComment?.content).toBe(commentArgs.args.content)
+	})
+})

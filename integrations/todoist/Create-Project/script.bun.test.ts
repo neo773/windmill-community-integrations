@@ -1,10 +1,17 @@
-import { main } from './script.bun';
-import { describe, it, expect } from 'bun:test';
+import { main } from './script.bun'
+import { main as getProject } from '../Get-Project/script.bun'
+import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
 describe('Create Project', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
-    });
-});
+	it('should create a project and verify its properties', async () => {
+		const projectArgs = {
+			name: `Test Project ${Math.random().toString(36).substring(2, 15)}`,
+			isFavorite: true
+		} as const
+		const createdProject = await main(resource, projectArgs)
+		expect(createdProject).toBeDefined()
+		expect(createdProject.name).toBe(projectArgs.name)
+		expect(createdProject.isFavorite).toBe(projectArgs.isFavorite)
+	})
+})

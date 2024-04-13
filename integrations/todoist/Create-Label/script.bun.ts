@@ -15,5 +15,5 @@ export async function main(resource: Todoist, label: {
 }) {
     const api = new TodoistApi(resource.Token)
     const labelResponse = await api.addLabel(label.args, label.requestId);
-    console.log(labelResponse);
+    return labelResponse
 }

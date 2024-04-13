@@ -3,8 +3,10 @@ import { describe, it, expect } from 'bun:test';
 import { resource } from '../resource.ts'
 
 describe('Find Project', () => {
-    it('should perform the integration action', async () => {
-        // Add your test logic here
-        expect(true).toBeTruthy(); // Update this line based on your test
+    it('should find an existing project by name or create a new one if not found', async () => {
+        const projectName = `Test Project For Find Project ${Math.random().toString(36).substring(2, 15)}`;
+        const project = await main(resource, projectName);
+        expect(project).toBeDefined();
+        expect(project.name).toEqual(projectName);
     });
 });
