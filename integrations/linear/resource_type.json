@@ -1,0 +1,14 @@
+{
+	"description": "A resource type for Linear",
+	"schema": {
+		"$schema": "https://json-schema.org/draft/2020-12/schema",
+		"type": "object",
+		"properties": {
+			"apiKey": {
+				"type": "string",
+				"description": "The API key for the Linear API"
+			}
+		},
+		"required": ["apiKey"]
+	}
+}
