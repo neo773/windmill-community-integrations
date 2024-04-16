@@ -1,6 +1,5 @@
 import { TodoistApi } from '@doist/todoist-api-typescript'
 import { v9 as Todoist } from 'todoist'
-import type { RequireExactlyOne } from 'type-fest'
 
 type Todoist = {
 	Token: string
@@ -17,14 +16,15 @@ export async function main(
 				fileType?: string
 				resourceType?: string
 			}
-		} & RequireExactlyOne<{
+		} & {
 			taskId?: string
 			projectId?: string
-		}>
+		}
 		requestId?: string
 	}
 ) {
 	const api = new TodoistApi(resource.Token)
+	// @ts-ignore
 	const commentResponse = await api.addComment(comment.args, comment.requestId)
 	return commentResponse
 }
