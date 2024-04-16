@@ -1,4 +1,5 @@
 import { main } from './script.bun'
+import { main as deleteTask } from '../Delete-Task/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
@@ -22,6 +23,8 @@ describe('Import Tasks', () => {
 			}
 		]
 		const response = await main(resource, tasks)
+		await deleteTask(resource, { id: response[0].id })
+		await deleteTask(resource, { id: response[1].id })
 		expect(response).toHaveLength(tasks.length)
 		response.forEach((res, index) => {
 			expect(res.content).toBe(tasks[index].args.content)

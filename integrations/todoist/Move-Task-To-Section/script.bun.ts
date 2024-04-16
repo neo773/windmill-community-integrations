@@ -5,6 +5,14 @@ type Todoist = {
 	Token: string
 }
 
+interface Response {
+	sync_status: Sync_status
+}
+
+interface Sync_status {
+	[key: string]: string
+}
+
 export async function main(resource: Todoist, taskId: string, parentId: string) {
 	const response = await fetch('https://api.todoist.com/sync/v9/sync', {
 		method: 'POST',
@@ -30,5 +38,7 @@ export async function main(resource: Todoist, taskId: string, parentId: string) 
 		throw new Error(`HTTP error! status: ${response.status}`)
 	}
 
-	return (await response.json()) as { sync_status: { [key: string]: string } }
+	const responseData = await response.json() as Response
+
+	return responseData.sync_status[0] === 'ok' ? true : false
 }

@@ -1,6 +1,7 @@
 import { main as updateFilter } from './script.bun'
 import { main as createFilter } from '../Create-Filter/script.bun'
 import { main as listFilters } from '../List-Filters/script.bun'
+import { main as deleteFilter } from '../Delete-Filter/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
@@ -10,6 +11,7 @@ describe('Create and Update Filter', () => {
 		await updateFilter(resource, { id: createResponse.id, name: 'Updated Test Filter' })
 		const getResponse = await listFilters(resource)
 		const filter = getResponse?.find((filter) => filter.id === createResponse.id)
+		await deleteFilter(resource, { id: createResponse.id })
 		expect(filter?.name).toBe('Updated Test Filter')
 	})
 })

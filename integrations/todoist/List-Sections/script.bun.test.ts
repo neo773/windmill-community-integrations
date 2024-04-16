@@ -1,4 +1,5 @@
 import { main } from './script.bun'
+import { main as deleteSection } from '../Delete-Section/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createSection } from '../Create-Section/script.bun'
@@ -11,6 +12,7 @@ describe('List Sections', () => {
 			await createSection(resource, { args: { name: 'Test Section', projectId: projectId } })
 			sections = await main(resource, projectId)
 		}
+		await deleteSection(resource, { id: sections[0].id })
 		expect(sections.length).toBeGreaterThan(0)
 		expect(sections[0].id).toBeDefined()
 		expect(sections[0].name).toBeDefined()

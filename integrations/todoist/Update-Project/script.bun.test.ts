@@ -3,6 +3,7 @@ import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createProject } from '../Create-Project/script.bun'
 import { main as deleteProject } from '../Delete-Project/script.bun'
+import { main as getProject } from '../Get-Project/script.bun'
 
 describe('Update Project', () => {
 	it('should create and update a project successfully', async () => {
@@ -18,9 +19,9 @@ describe('Update Project', () => {
 			color: 'blue'
 		}
 		const updatedProject = await main(resource, { id: createdProject.id, args: updatedArgs })
-		expect(updatedProject).toBeDefined()
-		expect(updatedProject.name).toBe(updatedArgs.name)
-		expect(updatedProject.color).toBe(updatedArgs.color)
+		const fetchedProject = await getProject(resource, updatedProject.id)
 		await deleteProject(resource, { id: createdProject.id })
+		expect(fetchedProject.name).toBe(updatedArgs.name)
+		expect(updatedProject.color).toBe(updatedArgs.color)
 	})
 })

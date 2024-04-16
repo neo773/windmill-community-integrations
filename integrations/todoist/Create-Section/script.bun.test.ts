@@ -1,4 +1,6 @@
 import { main } from './script.bun'
+import { main as deleteSection } from '../Delete-Section/script.bun'
+import { main as getSection } from '../Get-Section/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
@@ -12,7 +14,9 @@ describe('Create Section', () => {
 			}
 		}
 		const createdSection = await main(resource, sectionArgs)
-		expect(createdSection?.name).toBe(sectionArgs.args.name)
+		const fetchedSection = await getSection(resource, createdSection.id)
+		await deleteSection(resource, { id: createdSection?.id! })
+		expect(fetchedSection?.name).toBe(sectionArgs.args.name)
 		expect(createdSection?.projectId).toBe(sectionArgs.args.projectId)
 	})
 })

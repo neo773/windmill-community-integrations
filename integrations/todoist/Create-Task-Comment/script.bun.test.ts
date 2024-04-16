@@ -1,5 +1,8 @@
 import { main } from './script.bun'
 import { main as createTask } from '../Create-Task/script.bun'
+import { main as deleteComment } from '../Delete-Comment/script.bun'
+import { main as listComments } from '../List-Task-Comments/script.bun.ts'
+import { main as deleteTask } from '../Delete-Task/script.bun.ts'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
@@ -21,7 +24,11 @@ describe('Create Task Comment', () => {
 		} as const
 		const createdComment = await main(resource, commentArgs)
 		expect(createdComment).toBeDefined()
-		expect(createdComment.content).toBe(commentArgs.args.content)
-		expect(createdComment.taskId).toBe(commentArgs.args.taskId)
+		const fetchedComments = await listComments(resource, createdTask.id)
+		const fetchedComment = fetchedComments.find((comment) => comment.id === createdComment.id)
+		await deleteComment(resource, { id: createdComment.id })
+		await deleteTask(resource, { id: createdTask.id })
+		expect(fetchedComment?.content).toBe(commentArgs.args.content)
+		expect(fetchedComment?.taskId).toBe(commentArgs.args.taskId)
 	})
 })

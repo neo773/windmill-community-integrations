@@ -1,9 +1,11 @@
 import { main as moveTaskToSection } from './script.bun'
 import { main as createTask } from '../Create-Task/script.bun'
+import { main as deleteTask } from '../Delete-Task/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createProject } from '../Create-Project/script.bun'
 import { main as deleteProject } from '../Delete-Project/script.bun'
+import { main as getTask } from '../Get-Task/script.bun'
 
 describe('Move Task To Section', () => {
 	it('should successfully create a task and then move it to a specified section', async () => {
@@ -24,9 +26,11 @@ describe('Move Task To Section', () => {
 				projectId: newProject.id
 			}
 		})
-		const moveResponse = await moveTaskToSection(resource, taskId, newTask.id)
-		expect(moveResponse).toHaveProperty('sync_status')
-		expect(Object.values(moveResponse.sync_status)[0]).toBe('ok')
+		await moveTaskToSection(resource, taskId, newTask.id)
+		const fetchedTask = await getTask(resource, taskId)
 		await deleteProject(resource, { id: newProject.id })
+		await deleteTask(resource, { id: taskCreationResponse.id })
+		await deleteTask(resource, { id: newTask.id })
+		expect(fetchedTask.projectId).toBe(newTask.projectId)
 	})
 })

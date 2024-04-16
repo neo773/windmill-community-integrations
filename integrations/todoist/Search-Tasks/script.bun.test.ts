@@ -1,4 +1,5 @@
 import { main as searchTasks } from './script.bun'
+import { main as deleteTask } from '../Delete-Task/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createTask } from '../Create-Task/script.bun'
@@ -20,6 +21,7 @@ describe('Search Tasks', () => {
 			})
 			tasks = await searchTasks(resource, args)
 		}
+		await deleteTask(resource, { id: tasks[0].id })
 		expect(tasks.length).toBeGreaterThanOrEqual(1)
 		expect(tasks[0].labels).toContain(args.label)
 	})

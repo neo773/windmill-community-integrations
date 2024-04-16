@@ -1,4 +1,5 @@
 import { main } from './script.bun'
+import { main as deleteTask } from '../Delete-Task/script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createTask } from '../Create-Task/script.bun'
@@ -12,6 +13,7 @@ describe('Delete Task', () => {
 		})
 		expect(createdTask).toBeDefined()
 		const deleteTaskResponse = await main(resource, { id: createdTask.id })
+		await deleteTask(resource, { id: createdTask.id })
 		expect(deleteTaskResponse).toBeTrue()
 	})
 })

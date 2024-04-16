@@ -1,5 +1,6 @@
 import { main } from './script.bun'
-import { main as getProject } from '../Get-Project/script.bun'
+import { main as listProjects } from '../List-Projects/script.bun'
+import { main as deleteProject } from '../Delete-Project/script.bun.ts'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 
@@ -9,9 +10,11 @@ describe('Create Project', () => {
 			name: `Test Project ${Math.random().toString(36).substring(2, 15)}`,
 			isFavorite: true
 		} as const
-		const createdProject = await main(resource, projectArgs)
-		expect(createdProject).toBeDefined()
-		expect(createdProject.name).toBe(projectArgs.name)
-		expect(createdProject.isFavorite).toBe(projectArgs.isFavorite)
+		await main(resource, projectArgs)
+		const fetchedProjects = await listProjects(resource)
+		const createdProject = fetchedProjects.find((project) => project.name === projectArgs.name)
+		await deleteProject(resource, { id: createdProject?.id! })
+		expect(createdProject?.name).toBe(projectArgs.name)
+		expect(createdProject?.isFavorite).toBe(projectArgs.isFavorite)
 	})
 })

@@ -2,6 +2,7 @@ import { main } from './script.bun'
 import { describe, it, expect } from 'bun:test'
 import { resource } from '../resource.ts'
 import { main as createTask } from '../Create-Task/script.bun'
+import { main as deleteTask } from '../Delete-Task/script.bun'
 import { main as createTaskComment } from '../Create-Task-Comment/script.bun'
 
 describe('List Task Comments', () => {
@@ -16,6 +17,7 @@ describe('List Task Comments', () => {
 			args: { content: commentContent, taskId: task.id }
 		})
 		const comments = await main(resource, task.id)
+		await deleteTask(resource, { id: task.id })
 		expect(comments.length).toBeGreaterThan(0)
 		expect(comments[0].id).toBeDefined()
 		expect(comments[0].content).toBeDefined()
