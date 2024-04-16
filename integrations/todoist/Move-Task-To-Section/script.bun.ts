@@ -38,7 +38,7 @@ export async function main(resource: Todoist, taskId: string, parentId: string) 
 		throw new Error(`HTTP error! status: ${response.status}`)
 	}
 
-	const responseData = await response.json() as Response
+	const responseData = (await response.json()) as Response
 
 	return responseData.sync_status[0] === 'ok' ? true : false
 }

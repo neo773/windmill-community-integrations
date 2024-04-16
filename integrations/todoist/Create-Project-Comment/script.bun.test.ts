@@ -15,7 +15,9 @@ describe('Create Project Comment', () => {
 		} as const
 		await main(resource, commentArgs)
 		const fetchedComments = await listProjectComments(resource, projectId)
-		const createdComment = fetchedComments.find((comment) => comment.content === commentArgs.args.content)
+		const createdComment = fetchedComments.find(
+			(comment) => comment.content === commentArgs.args.content
+		)
 		await deleteComment(resource, { id: createdComment?.id! })
 		expect(createdComment).toBeDefined()
 		expect(createdComment?.content).toBe(commentArgs.args.content)
