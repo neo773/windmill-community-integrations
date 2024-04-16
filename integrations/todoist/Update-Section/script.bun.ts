@@ -1,4 +1,4 @@
-import { TodoistApi, type UpdateSectionArgs } from '@doist/todoist-api-typescript'
+import { TodoistApi } from '@doist/todoist-api-typescript'
 import { v9 as Todoist } from 'todoist'
 
 type Todoist = {

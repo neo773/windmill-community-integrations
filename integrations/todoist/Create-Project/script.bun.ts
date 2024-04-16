@@ -1,6 +1,5 @@
-import { TodoistApi, type ProjectViewStyle } from '@doist/todoist-api-typescript'
+import { TodoistApi } from '@doist/todoist-api-typescript'
 import { v9 as Todoist } from 'todoist'
-import { resource } from '../resource'
 
 type Todoist = {
 	Token: string
