@@ -16,11 +16,10 @@ export async function main(
 				fileType?: string
 				resourceType?: string
 			}
-		} & {
 			taskId?: string
 			projectId?: string
+			requestId?: string
 		}
-		requestId?: string
 	}
 ) {
 	const api = new TodoistApi(resource.Token)
