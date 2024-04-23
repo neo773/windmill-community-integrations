@@ -18,8 +18,8 @@ export async function main(
 			}
 			taskId?: string
 			projectId?: string
-			requestId?: string
 		}
+		requestId?: string
 	}
 ) {
 	const api = new TodoistApi(resource.Token)
